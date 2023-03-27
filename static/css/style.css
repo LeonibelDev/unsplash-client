@@ -1,0 +1,61 @@
+.card {
+  border-color: transparent;
+}
+
+.container {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 50px;
+  text-align: center;
+  font-family: 'Roboto Thin';
+}
+
+.title{
+  font: 600 40px 'Roboto Thin';
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* Estilos para el campo de entrada */
+input[type="text"] {
+  font-size: 18px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+  width: 60%;
+  border: none;
+}
+
+
+.logo{
+  width: 4%;
+}
+
+.bg{
+  background-image: url('https://unsplash.com/photos/ay53qag90W8/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTV8fGJsYWNrfGVzfDB8fHx8MTY3OTU4ODk1MA&force=true&w=2400');
+  background-size: cover;
+  background-position: center;
+  padding: 8%;
+  color: #ffffff;
+}
+
+.transparent{
+  padding-top: 0%;
+}
+
+.badge{
+  position: absolute;
+}
+
+.badge a{
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.Pagination a{
+  color:black;
+}
