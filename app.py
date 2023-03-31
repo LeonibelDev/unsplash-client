@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, send_from_directory, redirect, send_file
 from api import search, download_image_from_url
+import os
 
 app = Flask(__name__, template_folder='templates')
 
@@ -30,4 +31,4 @@ def static_files(path):
     return send_from_directory('static', path)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=(os.environ.get('PORT')))
