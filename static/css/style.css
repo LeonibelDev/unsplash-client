@@ -13,10 +13,16 @@
   font-family: 'Roboto Thin';
 }
 
-.title{
-  font: 600 40px 'Roboto Thin';
+.title {
+  font: 600 40px 'Arial';
   text-align: center;
   margin-top: 1rem;
+}
+
+*,
+footer,
+.sticki-bottom p {
+  font-family: 'Roboto';
 }
 
 /* Estilos para el campo de entrada */
@@ -31,31 +37,46 @@ input[type="text"] {
 }
 
 
-.logo{
+.logo {
   width: 4%;
 }
 
-.bg{
-  background-image: url('https://unsplash.com/photos/ay53qag90W8/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTV8fGJsYWNrfGVzfDB8fHx8MTY3OTU4ODk1MA&force=true&w=2400');
+.bg {
+  background-image: url('https://images.unsplash.com/photo-1606906136205-01323599ed51?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0MTg3MTZ8MHwxfHNlYXJjaHwzfHx3aGl0ZSUyMG9mZnxlbnwwfHx8fDE2ODQwOTcxMTd8MA&ixlib=rb-4.0.3&q=80&w=1080');
   background-size: cover;
   background-position: center;
   padding: 8%;
   color: #ffffff;
 }
 
-.transparent{
+.transparent {
   padding-top: 0%;
 }
 
-.badge{
+.badge {
   position: absolute;
+  background-color: rgba(red, green, blue, 0.6);
+  margin: 10px;
 }
 
-.badge a{
+.badge a {
   color: #ffffff;
   text-decoration: none;
 }
 
-.Pagination a{
-  color:black;
+.Pagination a {
+  color: black;
+}
+
+.card-img-top {
+  border-radius: 0%;
+  padding: 0;
+}
+
+.card {
+  margin: 20px 0;
+}
+
+.sticki-bottom p {
+  margin: 4px;
 }

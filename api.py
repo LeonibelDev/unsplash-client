@@ -9,11 +9,18 @@ params = {
 }
     
 def search(term, page):
-    url = f"https://api.unsplash.com/search/photos?query={term}&&page={page}"
-    request = requests.get(url, params=params)
+    
+    page = page*2-1
+    
+    
+    url1 = f"https://api.unsplash.com/search/photos?query={term}&page={page}"
+    request1 = requests.get(url1, params=params)
 
-    data = json.loads(request.text)['results']
-
+    url2 = f"https://api.unsplash.com/search/photos?query={term}&page={page+1}"
+    request2 = requests.get(url2, params=params)
+    
+    data = json.loads(request1.text)['results'] + json.loads(request2.text)['results']
+    
     images = []
 
     for photo in data:
