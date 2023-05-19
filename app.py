@@ -8,12 +8,15 @@ app = Flask(__name__, template_folder='templates')
 def home():
     #get method here
     if request.method == 'GET':
-        return render_template('index.html')
+        query = request.args.get('query', 'random')
+        page = int(request.args.get('page', 1))
+        result = search(query, page)
+        return render_template('index.html', result=result, query=query, page=page)
        
 
 @app.route('/search', methods = ['GET'])
 def getImages():
-    query = request.args.get('query')
+    query = request.args.get('query', 'random')
     page = int(request.args.get('page', 1))
     result = search(query, page)
     return render_template('index.html', result=result, query=query, page=page)

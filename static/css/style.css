@@ -14,8 +14,8 @@
 }
 
 .title {
-  font: 600 40px 'Arial';
-  text-align: center;
+  font: 600 35px 'Arial';
+  text-align: left;
   margin-top: 1rem;
 }
 
@@ -32,7 +32,7 @@ input[type="text"] {
   border-radius: 8px;
   outline: none;
   transition: border-color 0.3s ease-in-out;
-  width: 60%;
+  width: 100%;
   border: none;
 }
 
@@ -42,10 +42,10 @@ input[type="text"] {
 }
 
 .bg {
-  background-image: url('https://images.unsplash.com/photo-1606906136205-01323599ed51?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0MTg3MTZ8MHwxfHNlYXJjaHwzfHx3aGl0ZSUyMG9mZnxlbnwwfHx8fDE2ODQwOTcxMTd8MA&ixlib=rb-4.0.3&q=80&w=1080');
+  background-image: url('https://images.unsplash.com/photo-1615363227873-b9c73fdf3e65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0MTg3MTZ8MHwxfHNlYXJjaHw3fHxpbnRlcnN0ZWxsYXJ8ZW58MHx8fHwxNjg0NDMwMTI4fDA&ixlib=rb-4.0.3&q=80&w=raw');
   background-size: cover;
   background-position: center;
-  padding: 8%;
+  padding: 10%;
   color: #ffffff;
 }
 
@@ -55,13 +55,16 @@ input[type="text"] {
 
 .badge {
   position: absolute;
-  background-color: rgba(red, green, blue, 0.6);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   margin: 10px;
+  background-color: #ffffff;
+  height: 30px;
+  display: none;
 }
 
-.badge a {
-  color: #ffffff;
-  text-decoration: none;
+.card:hover .badge {
+  display: flex;
+  transition: ease-in 1s;
 }
 
 .Pagination a {
@@ -69,14 +72,21 @@ input[type="text"] {
 }
 
 .card-img-top {
-  border-radius: 0%;
+  border-radius: 0px;
   padding: 0;
-}
-
-.card {
-  margin: 20px 0;
 }
 
 .sticki-bottom p {
   margin: 4px;
+}
+
+.pagination li {
+  margin: 10px;
+
+}
+
+.page-link {
+  padding: 0 7px;
+  border-radius: 5px;
+  border: none;
 }

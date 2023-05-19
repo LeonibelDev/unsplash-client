@@ -10,17 +10,16 @@ params = {
     
 def search(term, page):
     
+    url = "https://api.unsplash.com/search/photos?query={}&page={}" 
     page = page*2-1
     
-    
-    url1 = f"https://api.unsplash.com/search/photos?query={term}&page={page}"
-    request1 = requests.get(url1, params=params)
-
-    url2 = f"https://api.unsplash.com/search/photos?query={term}&page={page+1}"
-    request2 = requests.get(url2, params=params)
+    request1 = requests.get(url.format(term, page), params=params)
+    request2 = requests.get(url.format(term, page+1), params=params)
     
     data = json.loads(request1.text)['results'] + json.loads(request2.text)['results']
     
+    # la lista esta compuesta por diccionarios, que tiene las resolucines de las imagenes
+    # {"regular": ..., "raw": ..} 
     images = []
 
     for photo in data:

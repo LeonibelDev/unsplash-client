@@ -13,47 +13,51 @@ Unsplash Client
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="/static/css/style.css">
-
 <link rel="shortcut icon"
     href="https://is5-ssl.mzstatic.com/image/thumb/Purple128/v4/97/5f/51/975f515b-a61c-1a0e-7866-459b3f4b670d/AppIcon-0-85-220-0-0-0-0-4-0-0-0-2x-sRGB-0-0-0.png/1200x630bb.png"
     type="image/x-icon">
 
-<link rel="stylesheet" href="<link rel=" stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+<link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
     integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<link rel="stylesheet" href="/static/css/style.css">
+
+
 {% endblock %}
 
 {% block body %}
 <div class="bg">
     <div class="container transparent">
-        <p class="title">
-            Download images from Unsplash.com
-        </p>
-        <h4>
-            only search your favorite image and download
-        </h4>
-        <form action="/search" method="get">
-            <input type="text" placeholder="Search" name="query" value="{{query}}">
-        </form>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <p class="title">
+                    Download outstanding images and bring your creativity to life.
+                </p>
+
+                <form action="/search" method="get">
+                    <input type="text" placeholder="Search" name="query" value="{{query}}">
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="container">
+<div class="container" id="images">
     <div class="row">
+        <h4 class="text-left mb-5">Free {{query}} Photos</h4>
         <div class="card-columns">
             {% for url in result %}
             <div class="">
                 <div class="card">
                     <div class="">
-                        <span class="badge bg-secondary download-button">
-                            <a href="/download?imageUrl={{url[1]}}" target="">
-                                <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                        <span class="">
+                            <a href="/download?imageUrl={{url[1]}}" target="" class="badge download-button">
+                                <i class="fa fa-arrow-down" aria-hidden="true" style="color: #000000;"></i>
                             </a>
                         </span>
 
@@ -68,23 +72,28 @@ Unsplash Client
 
 {% if result %}
 <div class="d-flex align-items-center justify-content-center mt-5">
-    <nav aria-label="Pagination">
+    <nav aria-label="">
         <ul class="pagination">
             <li class="page-item {%if page==1%} disabled {%endif%}">
                 <a class="page-link" href="/search?query={{query}}&page={{page-1}}" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
+                    <i class="fa-solid fa-circle-arrow-left"></i>
                     <span class="sr-only">Previous</span>
                 </a>
             </li>
 
-            {% for index in range (1, 10)%}
+            {% for index in range (1, 7)%}
             <li class="page-item"><a class="page-link {%if index == page%}active{%endif%}"
                     href="/search?query={{query}}&page={{index}}">{{index}}</a></li>
             {% endfor %}
 
+            {% if page >= 7 %}
+            <li class="page-item"><a class="page-link active" href="/search?query={{query}}&page={{index}}">...
+                    {{page}}</a></li>
+            {% endif %}
+
             <li class="page-item">
                 <a class="page-link" href="/search?query={{query}}&page={{page+1}}" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
+                    <i class="fa-solid fa-circle-arrow-right"></i>
                     <span class="sr-only">Next</span>
                 </a>
             </li>
