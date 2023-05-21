@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, send_from_directory, redirect, send_file
-from api import search, download_image_from_url
+from functions.search import search
+from functions.download_image import download_image_from_url
 import os
 
 app = Flask(__name__, template_folder='templates')
@@ -26,8 +27,8 @@ def getImages():
 def download():
     fileurl = request.args.get('imageUrl')
     image = download_image_from_url(fileurl)
-    return send_file(image, as_attachment=True) 
-
+    return send_file(image, mimetype='image/jpeg', as_attachment=True) 
+    
     
 @app.route('/static/<path:path>')
 def static_files(path):

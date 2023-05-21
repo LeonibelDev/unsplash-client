@@ -1,7 +1,7 @@
 import requests
 import json
 import os
-import random
+import time
 
 params = {
     "count": 1,    
@@ -28,6 +28,7 @@ def search(term, page):
     return images
 
 
+# Funcion para descargar las imagenes, dicha funcion almacena las imagenes en la carpeta "temp" 📁
 def download_image_from_url(image_url):
     response = requests.get(image_url)
     name = image_url.split('?')[0].split('/')[3] + '.jpg'
@@ -39,3 +40,15 @@ def download_image_from_url(image_url):
 
     return filename
     
+    
+# funcion para borrar las imagenes en la carpeta temporal
+def delete_temp_images(filename):
+    formatName = filename.replace("\\", "/")
+    
+    try:
+        time.sleep(10)
+        os.remove(formatName)
+        print("image deleted ✅")
+        return {"message": "image deleted ✅"}
+    except IOError:
+        print("error to delete image ❌")

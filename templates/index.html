@@ -56,12 +56,21 @@ Unsplash Client
                 <div class="card">
                     <div class="">
                         <span class="">
-                            <a href="/download?imageUrl={{url[1]}}" target="" class="badge download-button">
-                                <i class="fa fa-arrow-down" aria-hidden="true" style="color: #000000;"></i>
-                            </a>
+                            <div class="dropdown">
+                                <a class="download-button badge" href="#" role="button" id="dropdownMenuLink"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-arrow-down" aria-hidden="true" style="color: #000000;"></i>
+                                </a>
+
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    {% for key, quality in url.quality.items() %}
+                                    <li><a class="dropdown-item" href="/download?imageUrl={{quality}}">{{key}}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
                         </span>
 
-                        <img src="{{url[0]}}" alt="Mi imagen" class="card-img-top">
+                        <img src="{{url.quality.regular}}" alt="Mi imagen" class="card-img-top">
                     </div>
                 </div>
             </div>
