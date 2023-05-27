@@ -63,14 +63,14 @@ Unsplash Client
                                 </a>
 
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    {% for key, quality in url.quality.items() %}
-                                    <li><a class="dropdown-item" href="/download?imageUrl={{quality}}">{{key}}</a></li>
+                                    {% for key, value in quality.items()%}
+                                    <li><a class="dropdown-item" href="https://unsplash.com/photos/{{url.id}}/download?force=true&w={{value}}">{{key}}</a></li>
                                     {% endfor %}
                                 </ul>
                             </div>
                         </span>
 
-                        <img src="{{url.quality.regular}}" alt="Mi imagen" class="card-img-top">
+                        <img src="{{url.urls.regular}}" alt="Mi imagen" class="card-img-top">
                     </div>
                 </div>
             </div>

@@ -17,19 +17,10 @@ def search(term, page):
     data = json.loads(request1.text)['results'] + json.loads(request2.text)['results']
     
     # la lista esta compuesta por diccionarios, que tiene las resolucines de las imagenes
-    # {"regular": ..., "raw": ..} 
     images = []
 
     for photo in data:
         
-        images.append({
-            "quality": {
-                "thumb": photo['urls']['thumb'],
-                "small": photo['urls']['small'],                
-                "regular": photo['urls']['regular'],
-                "full": photo['urls']['full'],
-                "raw": photo['urls']['raw']
-            }
-            })
+        images.append(photo)
         
     return images

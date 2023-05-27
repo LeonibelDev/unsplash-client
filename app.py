@@ -1,6 +1,5 @@
-from flask import Flask, render_template, request, send_from_directory, redirect, send_file
+from flask import Flask, render_template, request, send_from_directory
 from functions.search import search
-from functions.download_image import download_image_from_url
 import os
 
 app = Flask(__name__, template_folder='templates')
@@ -20,16 +19,16 @@ def getImages():
     query = request.args.get('query', 'random')
     page = int(request.args.get('page', 1))
     result = search(query, page)
-    return render_template('index.html', result=result, query=query, page=page)
+    
+    download_quality = {
+        "thumb": 200,
+        "small": 640,
+        "regular": 1920,
+        "original": "" 
+    }
+    return render_template('index.html', result=result, query=query, page=page, quality=download_quality)
   
-    
-@app.route('/download', methods = ['GET'])
-def download():
-    fileurl = request.args.get('imageUrl')
-    image = download_image_from_url(fileurl)
-    return send_file(image, mimetype='image/jpeg', as_attachment=True) 
-    
-    
+
 @app.route('/static/<path:path>')
 def static_files(path):
     return send_from_directory('static', path)

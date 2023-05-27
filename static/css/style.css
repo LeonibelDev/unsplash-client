@@ -60,11 +60,12 @@ input[type="text"] {
   background-color: #ffffff;
   height: 30px;
   display: none;
+  z-index: 1;
 }
 
 .card:hover .badge {
   display: flex;
-  transition: ease-in 1s;
+  transition: ease-in 1s all;
 }
 
 .Pagination a {
