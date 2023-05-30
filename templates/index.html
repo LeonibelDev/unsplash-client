@@ -64,7 +64,9 @@ Unsplash Client
 
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     {% for key, value in quality.items()%}
-                                    <li><a class="dropdown-item" href="https://unsplash.com/photos/{{url.id}}/download?force=true&w={{value}}">{{key}}</a></li>
+                                    <li><a class="dropdown-item" target="_blank"
+                                            href="https://unsplash.com/photos/{{url.id}}/download?force=true&w={{value}}">{{key}}</a>
+                                    </li>
                                     {% endfor %}
                                 </ul>
                             </div>
