@@ -30,6 +30,3 @@ def getImages():
 @app.route('/static/<path:path>')
 def static_files(path):
     return send_from_directory('static', path)
-
-if __name__ == '__main__':
-    app.run(debug=True, port=(8000 or os.environ.get('PORT')))
